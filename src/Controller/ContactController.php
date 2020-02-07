@@ -12,7 +12,7 @@ class ContactController extends AbstractController
      */
     public function index()
     {
-        return $this->render('contact/index.html.twig', [
+        return $this->render('contact/contact.html.twig', [
             'controller_name' => 'ContactController',
         ]);
     }

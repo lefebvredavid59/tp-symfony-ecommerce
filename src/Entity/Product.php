@@ -42,7 +42,7 @@ class Product
     private $date;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean")
      */
     private $coeur;
 
@@ -55,6 +55,11 @@ class Product
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $promotion;
 
     public function getId(): ?int
     {
@@ -121,12 +126,12 @@ class Product
         return $this;
     }
 
-    public function getCoeur(): ?bool
+    public function getCoeur(): bool
     {
         return $this->coeur;
     }
 
-    public function setCoeur(?bool $coeur): self
+    public function setCoeur(bool $coeur): self
     {
         $this->coeur = $coeur;
 
@@ -153,6 +158,18 @@ class Product
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getPromotion(): ?int
+    {
+        return $this->promotion;
+    }
+
+    public function setPromotion(?int $promotion): self
+    {
+        $this->promotion = $promotion;
 
         return $this;
     }

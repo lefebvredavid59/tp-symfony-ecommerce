@@ -19,6 +19,27 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
+    public function findByHeart():array
+    {
+        $coeur = $this->createQueryBuilder('c')
+            ->where('c.coeur = 1')
+            ->orderBy('c.price','ASC')
+            ->getQuery();
+
+        return $coeur->getResult();
+    }
+
+    public function findByDate():array
+    {
+        $date = $this->createQueryBuilder('d')
+            ->where('d.date')
+            ->orderBy('d.date','DESC')
+            ->getQuery();
+
+        return $date->getResult();
+    }
+
+
     // /**
     //  * @return Product[] Returns an array of Product objects
     //  */
