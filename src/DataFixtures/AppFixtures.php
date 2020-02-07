@@ -24,7 +24,7 @@ class AppFixtures extends Fixture
             $product = new Product();
             $product->setName('iPhone '.$i);
             $product->setCouleurs(['Rouge', 'Argent', 'Noir']);
-            $product->setDate($faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now', $timezone = "Europe/Paris"));
+            $product->setDate($faker->dateTimeBetween($startDate = '-2 years', $endDate = 'now'));
             $product->setDescription('Un iPhone de '.(rand(2000,2200)));
             $product->setCoeur($faker->boolean(10));
             $product->setSlug($this->slugger->slug($product->getName())->lower());

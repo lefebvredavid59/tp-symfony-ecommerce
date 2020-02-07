@@ -19,25 +19,36 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-    public function findByHeart():array
+    public function findByCoeur()
     {
-        $coeur = $this->createQueryBuilder('c')
-            ->where('c.coeur = 1')
-            ->orderBy('c.price','ASC')
+        $queryBuilder = $this->createQueryBuilder('p')
+            ->where('p.coeur = 1')
+            ->orderBy('p.prix' , 'DESC')
             ->getQuery();
 
-        return $coeur->getResult();
+        return $queryBuilder->setMaxResults(1)->getOneOrNullResult();
+    }
+
+    public function findByDerDate()
+    {
+        $queryBuilder = $this->createQueryBuilder('p')
+            ->orderBy('p.date','DESC')
+            ->getQuery();
+
+        return $queryBuilder->setMaxResults(1)->getOneOrNullResult();
     }
 
     public function findByDate():array
     {
-        $date = $this->createQueryBuilder('d')
-            ->where('d.date')
-            ->orderBy('d.date','DESC')
+        $queryBuilder = $this->createQueryBuilder('p')
+            ->orderBy('p.date','DESC')
+            ->setMaxResults(4)
             ->getQuery();
 
-        return $date->getResult();
+        return $queryBuilder->getResult();
     }
+
+
 
 
     // /**

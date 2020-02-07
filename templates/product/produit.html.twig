@@ -65,12 +65,17 @@
                     </ul>
                 </div>
                 <div class="card bg-light mb-3">
+                    {% if date %}
                     <div class="card-header bg-success text-white text-uppercase">Dernier produit</div>
                     <div class="card-body">
+                        {% if date.image %}
                         <img class="img-fluid" src="https://dummyimage.com/600x400/55595c/fff" />
-                        <h5 class="card-title mt-3">Produit</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <p class="bloc_left_price">99.00 &euro;</p>
+                        {% endif %}
+                        <img class="img-fluid" src="https://dummyimage.com/600x400/55595c/fff" />
+                        <h5 class="card-title mt-3">{{ date.name }}</h5>
+                        <p class="card-text">{{ date.description }}</p>
+                        <p class="bloc_left_price">{{ date.prix  /100}} &euro;</p>
+                        {% endif %}
                     </div>
                 </div>
             </div>
